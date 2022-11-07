@@ -29,7 +29,7 @@ fn main()
         println!("i: {i}");
         i+=1;
     }
-    let si = String::from("E:\\repoGit\\pruebasRust\\prueba1\\src\\si.txt");
+    let si = String::from("..\\prueba1\\src\\si.txt");
     read_text(&si, &mut my_arr).expect("TODO: panic message");//pasamos los valores con &para prestarlos
     println!("largo: {}",my_arr.len());
     for line in my_arr
