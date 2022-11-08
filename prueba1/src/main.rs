@@ -4,6 +4,25 @@ use std::io::BufReader;
 use std::io::prelude::*;
 use std::fs::File;
 
+struct Persona
+{
+    nombre: String,
+    edad: u8,
+}
+
+impl Persona
+{
+    fn new_person(nombre: String, edad: u8) -> Persona
+    {
+        Persona {nombre,edad}
+    }
+
+    fn print_person(&self)
+    {
+        println!("mi nombre es {} y tengo {} años", self.nombre,self.edad)
+    }
+}
+
 fn read_text(url_file: &String, array: &mut Vec<String>) -> std::io::Result<()>
 {
     println!("url: {}",url_file);
@@ -39,4 +58,6 @@ fn main()
             println!("{}", palabra)
         }
     }
+    let persona1: Persona = Persona::new_person("matias".to_string(),30);
+    persona1.print_person();
 }
