@@ -167,7 +167,58 @@ fn digit_number()->io::Result<()>
     }
     Ok(())
 }
+
+fn isita_right_triangle()
+{
+    let mut input = String::new();
+    let mut bytes:usize=io::stdin().read_line(&mut input).ok().expect("error de lectura primera linea");
+    let mut n:i64 =input.trim().parse::<i64>().ok().expect("no se puede parsear la entrada");
+    let mut i:i64=0;
+    while i<n
+    {
+        input = String::new();
+        let bytes:usize=io::stdin().read_line(&mut input).ok().expect("error de lectura");
+        let mut a:i64=0;
+        let mut b:i64=0;
+        let mut c:i64=0;
+        let mut j:i64=0;
+        for i in input.split(" ")
+        {
+            if j==0
+            {
+                a=i.trim().parse::<i64>().ok().expect("error al trasformar a");
+            }
+            if j==1
+            {
+                b=i.trim().parse::<i64>().ok().expect("error al trasformar b");
+            }
+            if j==2
+            {
+                c=i.trim().parse::<i64>().ok().expect("error al trasformar c");
+            }
+            j+=1;
+        }
+        if ((a*a)+(b*b)) == (c*c)
+        {
+            println!("YES")
+        }
+        else if ((a*a)+(c*c)) == (b*b)
+        {
+            println!("YES")
+        }
+        else if ((b*b)+(c*c)) == (a*a)
+        {
+            println!("YES")
+        }
+        else
+        {
+            println!("NO")
+        }
+        i+=1;
+    }
+}
 fn main()
 {
+
 
 }
